@@ -2149,18 +2149,19 @@ quint32 CSbieAPI::GetFeatureFlags()
 	__declspec(align(8)) ULONG64 parms[API_NUM_ARGS];
 	API_QUERY_DRIVER_INFO_ARGS *args = (API_QUERY_DRIVER_INFO_ARGS*)parms;
 
-	ULONG flags = 0;
+	//ULONG flags = 0;
+	ULONG flags = (SBIE_FEATURE_FLAG_WFP + SBIE_FEATURE_FLAG_OB_CALLBACKS + SBIE_FEATURE_FLAG_SBIE_LOGIN + SBIE_FEATURE_FLAG_SECURITY_MODE + SBIE_FEATURE_FLAG_PRIVACY_MODE + SBIE_FEATURE_FLAG_COMPARTMENTS + SBIE_FEATURE_FLAG_WIN32K_HOOK);
 	//ULONG len = sizeof(flags);
 
-	memset(parms, 0, sizeof(parms));
-	args->func_code = API_QUERY_DRIVER_INFO;
-	args->info_class.val = 0;
-	args->info_data.val = &flags;
-	//args->info_len.val = &len;
+	//memset(parms, 0, sizeof(parms));
+	//args->func_code = API_QUERY_DRIVER_INFO;
+	//args->info_class.val = 0;
+	//args->info_data.val = &flags;
+	////args->info_len.val = &len;
 
-	NTSTATUS status = m->IoControl(parms);
-	if (!NT_SUCCESS(status))
-		return 0;
+	//NTSTATUS status = m->IoControl(parms);
+	//if (!NT_SUCCESS(status))
+	//	return 0;
 
 	return flags;
 }
@@ -2168,7 +2169,7 @@ quint32 CSbieAPI::GetFeatureFlags()
 QString CSbieAPI::GetFeatureStr()
 {
 	quint32 flags = GetFeatureFlags();
-	flags = (SBIE_FEATURE_FLAG_WFP + SBIE_FEATURE_FLAG_OB_CALLBACKS + SBIE_FEATURE_FLAG_SBIE_LOGIN + SBIE_FEATURE_FLAG_SECURITY_MODE + SBIE_FEATURE_FLAG_PRIVACY_MODE + SBIE_FEATURE_FLAG_COMPARTMENTS + SBIE_FEATURE_FLAG_WIN32K_HOOK);
+	//flags = (SBIE_FEATURE_FLAG_WFP + SBIE_FEATURE_FLAG_OB_CALLBACKS + SBIE_FEATURE_FLAG_SBIE_LOGIN + SBIE_FEATURE_FLAG_SECURITY_MODE + SBIE_FEATURE_FLAG_PRIVACY_MODE + SBIE_FEATURE_FLAG_COMPARTMENTS + SBIE_FEATURE_FLAG_WIN32K_HOOK);
 	QStringList str;
 	if (flags & SBIE_FEATURE_FLAG_WFP)
 		str.append("WFP");
