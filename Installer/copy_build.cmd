@@ -75,10 +75,6 @@ IF NOT %archPath% == Win32 (
 )
 
 
-ECHO Copying 7zip library
-copy /y %~dp07-Zip\7-Zip-%archPath%\7z.dll %instPath%\
-
-
 ECHO Copying SandMan project and libraries
 copy %srcPath%\MiscHelpers.dll %instPath%\
 copy %srcPath%\MiscHelpers.pdb %instPath%\
@@ -103,9 +99,6 @@ REM IF %archPath% == Win32 (
 copy /y %qtPath%\translations\qtscript_*.qm %instPath%\translations\
 copy /y %qtPath%\translations\qtxmlpatterns_*.qm %instPath%\translations\
 )
-
-"C:\Program Files\7-Zip\7z.exe" a %instPath%\translations.7z %instPath%\translations\*
-rmdir /S /Q %instPath%\translations\
 
 ECHO Copying Sandboxie
 
