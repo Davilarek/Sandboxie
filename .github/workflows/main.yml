@@ -42,11 +42,11 @@ jobs:
       - name: Build Sandboxie x64
         run: msbuild /t:build Sandboxie\Sandbox.sln /p:Configuration="SbieRelease" /p:Platform=x64 -maxcpucount:8
 
-      - name: Build Sandboxie ARM64
-        run: msbuild /t:build Sandboxie\Sandbox.sln /p:Configuration="SbieRelease" /p:Platform=ARM64 -maxcpucount:8
+      #- name: Build Sandboxie ARM64
+      #  run: msbuild /t:build Sandboxie\Sandbox.sln /p:Configuration="SbieRelease" /p:Platform=ARM64 -maxcpucount:8
 
-      - name: Build Sandboxie ARM64EC
-        run: msbuild /t:build Sandboxie\Sandbox.sln /p:Configuration="SbieRelease" /p:Platform=ARM64EC -maxcpucount:8
+      #- name: Build Sandboxie ARM64EC
+      #  run: msbuild /t:build Sandboxie\Sandbox.sln /p:Configuration="SbieRelease" /p:Platform=ARM64EC -maxcpucount:8
 
       #- name: Cache Qt
       #  id: cache-qt
